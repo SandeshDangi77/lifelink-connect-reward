@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import hero from "@/assets/hero-lifelink.jpg";
+import hero from "@/assets/hero-blood-graphic.jpg";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Calendar, MapPin, TicketPercent, QrCode } from "lucide-react";
@@ -29,16 +29,16 @@ const Index = () => {
   return (
     <main>
       <section ref={heroRef} className="relative overflow-hidden lifelink-hero">
-        <img src={hero} alt="LifeLink hero showing donors at a modern clinic" loading="lazy" className="w-full h-[56vh] object-cover" />
+        <img src={hero} alt="LifeLink hero blood donation graphic" loading="lazy" className="w-full h-[56vh] object-cover" />
         <div className="lifelink-hero-spotlight" />
-        <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/30 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 via-foreground/40 to-transparent" />
         <div className="absolute inset-0 flex items-end">
           <div className="container mx-auto px-6 pb-10">
-            <h1 className="text-4xl md:text-5xl font-extrabold text-balance max-w-3xl">
-              LifeLink — Blood Donation & Tracking
+            <h1 className="text-4xl md:text-5xl font-extrabold text-primary-foreground text-balance max-w-3xl">
+              Donate Blood. Save Life.
             </h1>
-            <p className="mt-3 text-lg text-muted-foreground max-w-2xl">
-              Find nearby events, register in seconds, earn health rewards, and track your blood from collection to recipient.
+            <p className="mt-3 text-lg text-primary-foreground/90 max-w-2xl">
+              LifeLink lets you find events, register, earn rewards, and track your blood from collection to recipient.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
               <Link to="/events"><Button variant="hero" size="lg">Find Events</Button></Link>
