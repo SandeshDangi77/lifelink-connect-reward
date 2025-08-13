@@ -59,7 +59,7 @@ const Index = () => {
             <div className="mt-6 flex flex-wrap gap-3">
               <Link to="/events"><Button variant="hero" size="lg">Find Events</Button></Link>
               <Link to="/track"><Button variant="outline" size="lg">Track Donation</Button></Link>
-              <Link to="/sponsors"><Button variant="ghost" size="lg">Partner Offers</Button></Link>
+              <Link to="/sponsors"><Button variant="outline" size="lg" className="bg-background text-foreground hover:bg-background/90">Partner Offers</Button></Link>
             </div>
           </div>
         </div>
