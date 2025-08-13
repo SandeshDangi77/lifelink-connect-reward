@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 import hero from "@/assets/hero-blood-graphic.jpg";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { Calendar, MapPin, TicketPercent, QrCode, HeartPulse } from "lucide-react";
+import { Calendar, MapPin, TicketPercent, QrCode } from "lucide-react";
 import { Link } from "react-router-dom";
 const mockEvents = [{
   id: 1,
@@ -47,19 +47,15 @@ const Index = () => {
         <div className="lifelink-hero-spotlight" />
         <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 via-foreground/40 to-transparent" />
         <div className="absolute inset-0 flex items-end">
-          <div className="container mx-auto pb-10 px-[20px] pr-8 md:pr-[28%]">
-            <div className="mb-2 inline-flex items-center gap-2 rounded-full bg-background/80 px-3 py-1 ring-1 ring-border backdrop-blur-sm">
-              <HeartPulse className="size-4 text-primary" aria-hidden />
-              <span className="text-xs font-semibold tracking-wide text-foreground">LifeLink</span>
-            </div>
-            <h1 className="text-4xl text-balance max-w-3xl md:text-4xl font-extrabold text-primary-foreground">
+          <div className="container mx-auto pb-10 px-[20px]">
+            <h1 className="text-4xl text-balance max-w-3xl md:text-4xl font-extrabold text-[#700000]">
               Donate Blood. Save Life.
             </h1>
             <p className="mt-3 text-primary-foreground/90 max-w-2xl my-px px-0 py-0 text-justify text-lg font-normal">Find events, register, earn rewards, and track your blood from collection to recipient.</p>
-            <div className="mt-6 flex flex-wrap gap-3">
+            <div className="mt-6 flex flex-wrap gap-3 text-rose-800">
               <Link to="/events"><Button variant="hero" size="lg">Find Events</Button></Link>
               <Link to="/track"><Button variant="outline" size="lg">Track Donation</Button></Link>
-              <Link to="/sponsors"><Button variant="outline" size="lg" className="bg-background text-foreground hover:bg-background/90">Partner Offers</Button></Link>
+              <Link to="/sponsors" className="text-base text-gray-950 bg-gray-100"><Button variant="ghost" size="lg">Partner Offers</Button></Link>
             </div>
           </div>
         </div>
