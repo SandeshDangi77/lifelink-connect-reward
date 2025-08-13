@@ -51,8 +51,7 @@ const Index = () => {
             <h1 className="text-4xl text-balance max-w-3xl md:text-4xl font-extrabold text-[#700000]">
               Donate Blood. Save Life.
             </h1>
-            <p className="mt-3 text-primary-foreground/90 max-w-2xl my-px px-0 py-0 text-justify text-lg font-normal">LifeLink lets you find events, register, earn rewards, and  
-Track your blood from collection to recipient.</p>
+            <p className="mt-3 text-primary-foreground/90 max-w-2xl my-px px-0 py-0 text-justify text-lg font-normal">Find events, register, earn rewards, and track your blood from collection to recipient.</p>
             <div className="mt-6 flex flex-wrap gap-3">
               <Link to="/events"><Button variant="hero" size="lg">Find Events</Button></Link>
               <Link to="/track"><Button variant="outline" size="lg">Track Donation</Button></Link>
