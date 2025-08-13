@@ -4,13 +4,28 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Calendar, MapPin, TicketPercent, QrCode } from "lucide-react";
 import { Link } from "react-router-dom";
-
-const mockEvents = [
-  { id: 1, title: "City Blood Drive", date: "2025-08-20", time: "10:00 AM - 3:00 PM", location: "Central Community Hall", bloodTypes: ["A+","O+","B+"], },
-  { id: 2, title: "University Campus Camp", date: "2025-08-24", time: "9:00 AM - 2:00 PM", location: "Tech University Gym", bloodTypes: ["All"], },
-  { id: 3, title: "Corporate Wellness Day", date: "2025-08-30", time: "11:00 AM - 4:00 PM", location: "Metro Tower Plaza", bloodTypes: ["O-","AB+"], },
-];
-
+const mockEvents = [{
+  id: 1,
+  title: "City Blood Drive",
+  date: "2025-08-20",
+  time: "10:00 AM - 3:00 PM",
+  location: "Central Community Hall",
+  bloodTypes: ["A+", "O+", "B+"]
+}, {
+  id: 2,
+  title: "University Campus Camp",
+  date: "2025-08-24",
+  time: "9:00 AM - 2:00 PM",
+  location: "Tech University Gym",
+  bloodTypes: ["All"]
+}, {
+  id: 3,
+  title: "Corporate Wellness Day",
+  date: "2025-08-30",
+  time: "11:00 AM - 4:00 PM",
+  location: "Metro Tower Plaza",
+  bloodTypes: ["O-", "AB+"]
+}];
 const Index = () => {
   const heroRef = useRef<HTMLDivElement | null>(null);
   useEffect(() => {
@@ -18,32 +33,30 @@ const Index = () => {
     if (!el) return;
     const onMove = (e: PointerEvent) => {
       const r = el.getBoundingClientRect();
-      const x = ((e.clientX - r.left) / r.width) * 100;
-      const y = ((e.clientY - r.top) / r.height) * 100;
+      const x = (e.clientX - r.left) / r.width * 100;
+      const y = (e.clientY - r.top) / r.height * 100;
       el.style.setProperty("--x", `${x}%`);
       el.style.setProperty("--y", `${y}%`);
     };
     el.addEventListener("pointermove", onMove);
     return () => el.removeEventListener("pointermove", onMove);
   }, []);
-  return (
-    <main>
+  return <main>
       <section ref={heroRef} className="relative overflow-hidden lifelink-hero">
         <img src={hero} alt="LifeLink hero blood donation graphic" loading="lazy" className="w-full h-[56vh] object-cover" />
         <div className="lifelink-hero-spotlight" />
         <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 via-foreground/40 to-transparent" />
         <div className="absolute inset-0 flex items-end">
-          <div className="container mx-auto px-6 pb-10">
-            <h1 className="text-4xl md:text-5xl font-extrabold text-primary-foreground text-balance max-w-3xl">
+          <div className="container mx-auto pb-10 px-[20px]">
+            <h1 className="text-4xl text-balance max-w-3xl md:text-4xl font-extrabold text-[#700000]">
               Donate Blood. Save Life.
             </h1>
-            <p className="mt-3 text-lg text-primary-foreground/90 max-w-2xl">
-              LifeLink lets you find events, register, earn rewards, and track your blood from collection to recipient.
-            </p>
+            <p className="mt-3 text-primary-foreground/90 max-w-2xl my-px px-0 py-0 text-lg font-normal text-justify">LifeLink lets you find events, register, earn rewards, and
+ track your blood from collection to recipient.</p>
             <div className="mt-6 flex flex-wrap gap-3">
               <Link to="/events"><Button variant="hero" size="lg">Find Events</Button></Link>
               <Link to="/track"><Button variant="outline" size="lg">Track Donation</Button></Link>
-              <Link to="/sponsors"><Button variant="ghost" size="lg">Partner Offers</Button></Link>
+              <Link to="/sponsors" className="text-base text-gray-950 bg-gray-100"><Button variant="ghost" size="lg">Partner Offers</Button></Link>
             </div>
           </div>
         </div>
@@ -55,8 +68,7 @@ const Index = () => {
           <p className="text-muted-foreground">Browse a few highlights. See all events for full filters.</p>
         </header>
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {mockEvents.map(e => (
-            <Card key={e.id} className="lifelink-card group transition-transform hover:-translate-y-0.5">
+          {mockEvents.map(e => <Card key={e.id} className="lifelink-card group transition-transform hover:-translate-y-0.5">
               <CardHeader>
                 <CardTitle className="text-xl">{e.title}</CardTitle>
                 <CardDescription>Blood types: {e.bloodTypes.join(", ")}</CardDescription>
@@ -69,8 +81,7 @@ const Index = () => {
                 <Button variant="outline" asChild><Link to={`/events#${e.id}`}>Details</Link></Button>
                 <Button variant="default" asChild><Link to="/events">Register</Link></Button>
               </CardFooter>
-            </Card>
-          ))}
+            </Card>)}
         </div>
       </section>
 
@@ -103,8 +114,6 @@ const Index = () => {
           </div>
         </div>
       </section>
-    </main>
-  );
+    </main>;
 };
-
 export default Index;
