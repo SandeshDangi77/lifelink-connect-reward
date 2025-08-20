@@ -1,11 +1,24 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { ArrowLeft } from "lucide-react";
 
 export default function Admin() {
+  const navigate = useNavigate();
+  
   return (
     <main className="container mx-auto px-6 py-10">
-      <h1 className="text-3xl font-bold mb-2">Admin dashboard</h1>
+      <div className="flex items-center gap-3 mb-6">
+        <Button
+          variant="ghost"
+          size="icon"
+          onClick={() => navigate(-1)}
+          className="hover:bg-accent/10"
+        >
+          <ArrowLeft className="h-4 w-4" />
+        </Button>
+        <h1 className="text-3xl font-bold">Admin dashboard</h1>
+      </div>
       <p className="text-muted-foreground mb-6">Create/manage events, approve sponsors, and update donation statuses.</p>
 
       <section className="grid md:grid-cols-3 gap-6">

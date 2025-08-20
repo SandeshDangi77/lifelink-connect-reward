@@ -3,7 +3,8 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Calendar, MapPin } from "lucide-react";
+import { Calendar, MapPin, ArrowLeft } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 interface EventItem {
   id: number;
@@ -22,6 +23,7 @@ const EVENTS: EventItem[] = [
 ];
 
 export default function Events() {
+  const navigate = useNavigate();
   const [query, setQuery] = useState("");
   const [blood, setBlood] = useState<string>("all");
 
@@ -35,9 +37,19 @@ export default function Events() {
 
   return (
     <main className="container mx-auto px-6 py-10">
+      <div className="flex items-center gap-3 mb-6">
+        <Button
+          variant="ghost"
+          size="icon"
+          onClick={() => navigate(-1)}
+          className="hover:bg-accent/10"
+        >
+          <ArrowLeft className="h-4 w-4" />
+        </Button>
+        <h1 className="text-3xl font-bold">Find a donation event</h1>
+      </div>
       <header className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between mb-8">
         <div>
-          <h1 className="text-3xl font-bold">Find a donation event</h1>
           <p className="text-muted-foreground">Search by location or filter by blood type.</p>
         </div>
         <div className="flex flex-col sm:flex-row gap-3 w-full md:w-auto">
