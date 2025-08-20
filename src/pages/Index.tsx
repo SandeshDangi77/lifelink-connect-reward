@@ -41,7 +41,7 @@ const Index = () => {
     el.addEventListener("pointermove", onMove);
     return () => el.removeEventListener("pointermove", onMove);
   }, []);
-  return <main>
+  return <main className="bg-background min-h-screen">
       <section ref={heroRef} className="relative overflow-hidden lifelink-hero">
         <img src={hero} alt="LifeLink hero blood donation graphic" loading="lazy" className="w-full h-[56vh] object-cover" />
         <div className="lifelink-hero-spotlight" />
